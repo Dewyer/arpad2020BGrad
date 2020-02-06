@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/arpad2020BGrad/static/css/main.8e0f249a.chunk.css",
+    "main.js": "/arpad2020BGrad/static/js/main.20165fbc.chunk.js",
+    "main.js.map": "/arpad2020BGrad/static/js/main.20165fbc.chunk.js.map",
+    "runtime-main.js": "/arpad2020BGrad/static/js/runtime-main.0bdd8e55.js",
+    "runtime-main.js.map": "/arpad2020BGrad/static/js/runtime-main.0bdd8e55.js.map",
+    "static/js/2.77562c69.chunk.js": "/arpad2020BGrad/static/js/2.77562c69.chunk.js",
+    "static/js/2.77562c69.chunk.js.map": "/arpad2020BGrad/static/js/2.77562c69.chunk.js.map",
+    "index.html": "/arpad2020BGrad/index.html",
+    "precache-manifest.c35dea81966223cc2250078ab948ca15.js": "/arpad2020BGrad/precache-manifest.c35dea81966223cc2250078ab948ca15.js",
+    "service-worker.js": "/arpad2020BGrad/service-worker.js",
+    "static/css/main.8e0f249a.chunk.css.map": "/arpad2020BGrad/static/css/main.8e0f249a.chunk.css.map",
+    "static/js/2.77562c69.chunk.js.LICENSE.txt": "/arpad2020BGrad/static/js/2.77562c69.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0bdd8e55.js",
+    "static/js/2.77562c69.chunk.js",
+    "static/css/main.8e0f249a.chunk.css",
+    "static/js/main.20165fbc.chunk.js"
+  ]
+}
