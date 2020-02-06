@@ -2,6 +2,7 @@
   "name": "arpad2020bgrad",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dewyer.github.io/arpad2020BGrad/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -21,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+	"eject": "react-scripts eject",
+	"predeploy": "yarn build",
+  	"deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.3"
+    "@types/react-router-dom": "^5.1.3",
+    "gh-pages": "^2.2.0"
   }
 }
