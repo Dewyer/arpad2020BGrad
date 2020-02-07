@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MainPageContainer from '../MainPageContainer/MainPage-container';
 import NavMenuWrapper from '../NavMenuWrapper';
+import FaceRecognitionPage from '../FaceRecognitionPage';
 
 const App = () =>
 {
@@ -11,7 +12,8 @@ const App = () =>
 		<BrowserRouter>
 			<NavMenuWrapper>
 				<Switch>
-					<Route path="/" component={MainPageContainer}/>
+					<Route exact path="/" component={MainPageContainer}/>
+					<Route exact path="/recognise" component={FaceRecognitionPage}/>
 				</Switch>
 			</NavMenuWrapper>
 		</BrowserRouter>

@@ -32,8 +32,8 @@ class NavHeader extends React.Component<Props,State>
 	render(){
 
 		const navList:NavButtonData[ ] = [
-			{to:"#",title:"Face Recognition",img:camIcon},
-			{ to: "#", title: "Class list", img: listIcon },
+			{to:"/recognise",title:"Face Recognition",img:camIcon},
+			{ to: "/", title: "Class list", img: listIcon },
 			{ to: "#", title: "Lotto", img: lottoIcon },
 
 		];
