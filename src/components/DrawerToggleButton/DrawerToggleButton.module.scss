@@ -1,0 +1,15 @@
+
+/*DrawerToggleButton View Styles*/
+
+.btn
+{
+	&>img
+	{
+		height: 1.7rem;
+	}
+	&>img::hover
+	{
+		opacity: 0.6;
+	}
+	margin-right: 0.7rem;
+}
