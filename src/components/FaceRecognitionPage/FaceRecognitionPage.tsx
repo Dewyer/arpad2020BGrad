@@ -2,10 +2,22 @@ import React, { useRef, useEffect } from 'react';
 import Webcam from "react-webcam";
 import useWindowDimensions from '../../hooks/useWindowDimension';
 import useTimer from '../../hooks/useTimer';
+import * as faceapi from "face-api.js";
 
 export interface Props
 {
 
+}
+
+async function test(img:string)
+{
+	await faceapi.nets.faceRecognitionNet.load("/aimodels");
+	console.log("segg");
+	let desc = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors();
+	console.log("fail");
+	desc.forEach(xx=>{
+		console.log("face :",xx);x
+	})
 }
 
 function FaceRecognitionPage(props: Props)
@@ -20,6 +32,7 @@ function FaceRecognitionPage(props: Props)
 		if (img)
 		{
 			console.log("img len: ",img.length);
+			test(img);
 		}
 	});
 
