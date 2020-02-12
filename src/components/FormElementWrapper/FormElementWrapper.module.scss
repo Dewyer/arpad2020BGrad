@@ -1,0 +1,17 @@
+
+/*FormElementWrapper View Styles*/
+
+.container
+{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.title
+{
+	font-weight: bold;
+	font-size: 1rem;
+	margin-bottom: 0.2rem;
+}

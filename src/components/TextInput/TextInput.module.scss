@@ -1,0 +1,23 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/paleta.scss";
+
+/*TextInput View Styles*/
+
+.inp
+{
+	border: 1px $Blue solid;
+	border-radius: 5px;
+	font-size: 1rem;
+	outline: none !important;
+	padding: 0.2rem 0.3rem;
+	@include useFontNormal();
+	resize: none;
+	box-sizing: border-box;
+
+	width: 14rem;
+
+	&:focus
+	{
+		background-color: lighten($Blue, 60%);
+	}
+}

@@ -1,1 +1,6 @@
 // Scss mixins
+
+@mixin useFontNormal()
+{
+	font-family: "Hind Vadodara", sans-serif;
+}
