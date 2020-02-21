@@ -9,6 +9,8 @@ import Button from '../Button';
 import FileUpload from '../MultiFileUploader/FileUpload';
 import { StudentPagePayload } from '../../models/StudentPage';
 import StudentUitl from '../../utils/StudentUtil';
+import Download from "../Download";
+import snake from "to-snake-case";
 
 export interface Props
 {
@@ -25,8 +27,26 @@ const PageMakerPage:React.FC<Props> = (props:Props) =>
 	const [teacherPhotos, setTeacherPhotos] = useState<File[]>([]);
 	const [tabloPhoto,setTabloPhoto] = useState<File|null>(null);
 	const [loading,setLoading] = useState(false);
+	const [userPageJsonObj,setUserPageJsonObj] = useState<{name:string,content:string} | undefined>(undefined);
 
 	const finished = personName !== "" && description !== "" && tabloPhoto && teacherPhotos.length !== 0;
+
+	async function makeFile()
+	{
+		let payload: StudentPagePayload =
+		{
+			name: personName,
+			description: description,
+			ownPhotos: ownPhotos,
+			tabloPhoto: tabloPhoto!,
+			teacherPhotos: teacherPhotos
+		}
+
+		setLoading(true);
+		const obj = await StudentUitl.makeStudentPageObject(payload);
+		setLoading(false);
+		setUserPageJsonObj({ name:snake(personName.toLowerCase())+".json",content:JSON.stringify(obj)});
+	}
 
 	return (
 		<div className={styles.container}>
@@ -65,21 +85,10 @@ const PageMakerPage:React.FC<Props> = (props:Props) =>
 				title="FACE AI Tanító képek"
 				onChangeUploadedFiles={setTeacherPhotos}
 			/>
-
-			<Button disabled={loading || !finished} style={{marginTop:"2rem"}} title="Letöltés" onClick={async ()=>{
-				let payload:StudentPagePayload =
-				{
-					name: personName,
-					description:description,
-					ownPhotos:ownPhotos,
-					tabloPhoto:tabloPhoto!,
-					teacherPhotos:teacherPhotos
-				}
-
-				setLoading(true);
-				const obj = await StudentUitl.makeStudentPageObject(payload);
-				setLoading(false);
-			}}/>
+			{userPageJsonObj ?
+				<Download file={userPageJsonObj.name} content={userPageJsonObj.content}><Button style={{ marginTop: "2rem" }} title="Letöltés"/></Download> :
+				<Button disabled={loading || !finished} style={{marginTop:"2rem"}} title="Létrehozás" onClick={makeFile}/>
+			}
 		</div>
 	);
 }

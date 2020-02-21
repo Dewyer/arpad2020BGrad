@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -6,9 +6,18 @@ import MainPageContainer from '../MainPageContainer/MainPage-container';
 import NavMenuWrapper from '../NavMenuWrapper';
 import FaceRecognitionPage from '../FaceRecognitionPage';
 import PageMakerPage from '../PageMakerPage';
+import AiUtil from "../../utils/AiUtil";
 
 const App = () =>
 {
+	useEffect(()=>{
+		async function loadFaceApi()
+		{
+			AiUtil.init();
+		}
+		loadFaceApi();
+	},[ ]);
+
 	return (
 		<BrowserRouter>
 			<NavMenuWrapper>
