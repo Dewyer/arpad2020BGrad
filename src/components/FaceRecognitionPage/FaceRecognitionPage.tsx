@@ -21,6 +21,9 @@ function FaceRecognitionPage(props: Props)
 		if  (img)
 		{
 			const face = await AiUtil.witchFaceFromBase64(img);
+			if (face !== "")
+			{
+			}
 			console.log("face: "+face)
 		}
 	});

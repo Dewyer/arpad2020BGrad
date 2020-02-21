@@ -19,17 +19,17 @@ export interface Props
 
 const mdParser = new MarkdownIt();
 
-const PageMakerPage:React.FC<Props> = (props:Props) =>
+const PageMakerPage: React.FC<Props> = (props: Props) =>
 {
-	const [personName,setPersonName] = useState("");
+	const [personName, setPersonName] = useState("");
 	const [description, setDescription] = useState("");
-	const [ownPhotos,setOwnPhotos] = useState<File[ ]>([ ]);
+	const [ownPhotos, setOwnPhotos] = useState<File[]>([]);
 	const [teacherPhotos, setTeacherPhotos] = useState<File[]>([]);
-	const [tabloPhoto,setTabloPhoto] = useState<File|null>(null);
-	const [loading,setLoading] = useState(false);
-	const [userPageJsonObj,setUserPageJsonObj] = useState<{name:string,content:string} | undefined>(undefined);
+	const [tabloPhoto, setTabloPhoto] = useState<File | null>(null);
+	const [loading, setLoading] = useState(false);
+	const [userPageJsonObj, setUserPageJsonObj] = useState<{ name: string, content: string } | undefined>(undefined);
 
-	const finished = personName !== "" && description !== "" && tabloPhoto && teacherPhotos.length !== 0;
+	const finished = personName !== "" && description !== "" && tabloPhoto && teacherPhotos.length !== 0;
 
 	async function makeFile()
 	{
@@ -45,7 +45,14 @@ const PageMakerPage:React.FC<Props> = (props:Props) =>
 		setLoading(true);
 		const obj = await StudentUitl.makeStudentPageObject(payload);
 		setLoading(false);
-		setUserPageJsonObj({ name:snake(personName.toLowerCase())+".json",content:JSON.stringify(obj)});
+		if (obj)
+		{
+			setUserPageJsonObj({ name: snake(personName.toLowerCase()) + ".json", content: JSON.stringify(obj) });
+		}
+		else
+		{
+			alert("Error, no faces or something");
+		}
 	}
 
 	return (
@@ -53,19 +60,20 @@ const PageMakerPage:React.FC<Props> = (props:Props) =>
 			<h2>Rakd össze az oldalad!</h2>
 			<p>Vagy ne</p>
 
-			<FormElementWrapper title={"Neved: "} style={{marginBottom:"1rem"}}>
-				<TextInput value={personName} onChangeValue={setPersonName}/>
+			<FormElementWrapper title={"Neved: "} style={{ marginBottom: "1rem" }}>
+				<TextInput value={personName} onChangeValue={setPersonName} />
 			</FormElementWrapper>
-			<FormElementWrapper title={"Leírásod: "} containerStyle={{ width: "100%"}}>
+			<FormElementWrapper title={"Leírásod: "} containerStyle={{ width: "100%" }}>
 				<MdEditor
 					value={description}
 					renderHTML={(text) => mdParser.render(text)}
-					onChange={(val)=>{setDescription(val.text)}}
-					style={{height:"22rem",marginBottom:"1rem"}}
+					onChange={(val) => { setDescription(val.text) }}
+					style={{ height: "22rem", marginBottom: "1rem" }}
 				/>
 			</FormElementWrapper>
-			<FormElementWrapper title="Tabló fotó" style={{marginBottom:"1rem"}}>
-				<FileUpload singular handleChange={(vv)=>{
+			<FormElementWrapper title="Tabló fotó" style={{ marginBottom: "1rem" }}>
+				<FileUpload singular handleChange={(vv) =>
+				{
 					if (vv)
 					{
 						if (vv.length >= 1)
@@ -73,7 +81,7 @@ const PageMakerPage:React.FC<Props> = (props:Props) =>
 							setTabloPhoto(vv[0]);
 						}
 					}
-				}}/>
+				}} />
 			</FormElementWrapper>
 			<MultiFileUploader
 				style={{ marginBottom: "1rem" }}
@@ -81,13 +89,13 @@ const PageMakerPage:React.FC<Props> = (props:Props) =>
 				onChangeUploadedFiles={setOwnPhotos}
 			/>
 			<MultiFileUploader
-				style={{marginBottom:"1rem"}}
+				style={{ marginBottom: "1rem" }}
 				title="FACE AI Tanító képek"
 				onChangeUploadedFiles={setTeacherPhotos}
 			/>
 			{userPageJsonObj ?
-				<Download file={userPageJsonObj.name} content={userPageJsonObj.content}><Button style={{ marginTop: "2rem" }} title="Letöltés"/></Download> :
-				<Button disabled={loading || !finished} style={{marginTop:"2rem"}} title="Létrehozás" onClick={makeFile}/>
+				<Download file={userPageJsonObj.name} content={userPageJsonObj.content}><Button style={{ marginTop: "2rem" }} title="Letöltés" /></Download> :
+				<Button disabled={loading || !finished} style={{ marginTop: "2rem" }} title="Létrehozás" onClick={makeFile} />
 			}
 		</div>
 	);

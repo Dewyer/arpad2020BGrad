@@ -68,7 +68,9 @@ export default abstract class AiUtil
 		const desc = await this.matchSingleFaceFromBase64(b64);
 		if (desc)
 		{
+			console.log("found face on img");
 			const match = this.faceMatcher.matchDescriptor(desc.descriptor);
+			console.log(match);
 			return match.label;
 		}
 		return "";

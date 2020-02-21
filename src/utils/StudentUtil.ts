@@ -35,6 +35,7 @@ export default abstract class StudentUitl
 	{
 		let tabloBase = await this.loadFileToBase64(payload.tabloPhoto);
 		let tabloDesc = await AiUtil.matchSingleFaceFromBase64(tabloBase);
+		console.log(tabloBase);
 		if (!tabloDesc)
 		{
 			return undefined;
