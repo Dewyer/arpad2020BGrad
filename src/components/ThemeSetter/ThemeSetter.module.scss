@@ -1,0 +1,14 @@
+
+/*ThemeSetter View Styles*/
+.darkreader
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& label
+	{
+		color:white;
+		margin-left: 0.4rem;
+	}
+}
