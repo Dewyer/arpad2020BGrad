@@ -22,6 +22,8 @@ const mdParser = new MarkdownIt();
 const PageMakerPage: React.FC<Props> = (props: Props) =>
 {
 	const [personName, setPersonName] = useState("");
+	const [statusText, setStatusText] = useState("");
+
 	const [description, setDescription] = useState("");
 	const [ownPhotos, setOwnPhotos] = useState<File[]>([]);
 	const [teacherPhotos, setTeacherPhotos] = useState<File[]>([]);
@@ -39,7 +41,8 @@ const PageMakerPage: React.FC<Props> = (props: Props) =>
 			description: description,
 			ownPhotos: ownPhotos,
 			tabloPhoto: tabloPhoto!,
-			teacherPhotos: teacherPhotos
+			teacherPhotos: teacherPhotos,
+			status:statusText
 		}
 
 		setLoading(true);
@@ -62,6 +65,9 @@ const PageMakerPage: React.FC<Props> = (props: Props) =>
 
 			<FormElementWrapper title={"Neved: "} style={{ marginBottom: "1rem" }}>
 				<TextInput value={personName} onChangeValue={setPersonName} />
+			</FormElementWrapper>
+			<FormElementWrapper title={"Státuszod: pl: 'Igazgató','Tanár' diák esetén üres"} style={{ marginBottom: "1rem" }}>
+				<TextInput value={statusText} onChangeValue={setStatusText} />
 			</FormElementWrapper>
 			<FormElementWrapper title={"Leírásod: "} containerStyle={{ width: "100%" }}>
 				<MdEditor

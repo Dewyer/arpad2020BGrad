@@ -4,6 +4,7 @@ import './styles/index.scss';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import 'react-markdown-editor-lite/lib/index.css';
+import "react-toggle/style.css";
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

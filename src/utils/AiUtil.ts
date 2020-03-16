@@ -3,6 +3,7 @@ import FaceDescriptor from "../models/FaceDescriptor";
 import StudentPage from "../models/StudentPage";
 import FacePoolEntry from "../models/FacePoolEntry";
 import { FaceMatcher } from "face-api.js";
+import StudentUitl from "./StudentUtil";
 
 export default abstract class AiUtil
 {
@@ -42,8 +43,10 @@ export default abstract class AiUtil
 		let persons:string[ ] = require("../assets/people.json");
 		for (let ii = 0; ii < persons.length;ii++)
 		{
-			let peopleDataStr = await fetch(`/people/${persons[ii]}.json`);
-			const peopleData:StudentPage = await peopleDataStr.json();
+			const peopleData = await StudentUitl.fetchStudentData(persons[ii]);
+			if (!peopleData)
+				continue;
+
 			let entry:FacePoolEntry ={
 				personId:peopleData.id,
 				possibilities:Array.from(peopleData.teachingDescriptor)

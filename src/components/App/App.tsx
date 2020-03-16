@@ -7,6 +7,7 @@ import NavMenuWrapper from '../NavMenuWrapper';
 import FaceRecognitionPage from '../FaceRecognitionPage';
 import PageMakerPage from '../PageMakerPage';
 import AiUtil from "../../utils/AiUtil";
+import StudentPage from '../StudentPage';
 
 const App = () =>
 {
@@ -25,6 +26,7 @@ const App = () =>
 					<Route exact path="/" component={MainPageContainer}/>
 					<Route exact path="/recognise" component={FaceRecognitionPage}/>
 					<Route exact path="/upload" component={PageMakerPage} />
+					<Route exact path="/p/:id" component={StudentPage} />
 				</Switch>
 			</NavMenuWrapper>
 		</BrowserRouter>

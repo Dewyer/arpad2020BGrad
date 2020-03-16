@@ -2,12 +2,27 @@ import StudentPage, { StudentPagePayload } from "../models/StudentPage";
 import AiUtil from "./AiUtil";
 import FaceDescriptor from "../models/FaceDescriptor";
 import uuid from "uuid";
+import StudentPageModel from "../models/StudentPage";
 
 export default abstract class StudentUitl
 {
 	public static async init()
 	{
 
+	}
+
+	public static async fetchStudentData(uid:string) : Promise<StudentPageModel | null>
+	{
+		try
+		{
+			let peopleDataStr = await fetch(`/people/${uid}.json`);
+			let pplData = await peopleDataStr.json() as StudentPageModel;
+			return pplData;
+		}
+		catch
+		{
+			return null;
+		}
 	}
 
 	public static async loadFileToBase64(ff:File) : Promise<string>
@@ -59,7 +74,8 @@ export default abstract class StudentUitl
 			tabloDescriptor:tabloDesc!,
 			tabloBase64:tabloBase,
 			teachingDescriptor:teaching,
-			id:uuid.v4()
+			id:uuid.v4(),
+			status:payload.status
 		};
 	}
 }

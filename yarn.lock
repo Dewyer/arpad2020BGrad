@@ -907,6 +907,32 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@fortawesome/fontawesome-common-types@^0.2.27":
+  version "0.2.27"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.27.tgz#19706345859fc46adf3684ed01d11b40903b87e9"
+  integrity sha512-97GaByGaXDGMkzcJX7VmR/jRJd8h1mfhtA7RsxDBN61GnWE/PPCZhOdwG/8OZYktiRUF0CvFOr+VgRkJrt6TWg==
+
+"@fortawesome/fontawesome-svg-core@^1.2.27":
+  version "1.2.27"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.27.tgz#e4db8e3be81a40988213507c3e3d0c158a6641a3"
+  integrity sha512-sOD3DKynocnHYpuw2sLPnTunDj7rLk91LYhi2axUYwuGe9cPCw7Bsu9EWtVdNJP+IYgTCZIbyARKXuy5K/nv+Q==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.27"
+
+"@fortawesome/free-solid-svg-icons@^5.12.1":
+  version "5.12.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.12.1.tgz#76b6f958a3471821ff146f8f955e6d7cfe87147c"
+  integrity sha512-k3MwRFFUhyL4cuCJSaHDA0YNYMELDXX0h8JKtWYxO5XD3Dn+maXOMrVAAiNGooUyM2v/wz/TOaM0jxYVKeXX7g==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.27"
+
+"@fortawesome/react-fontawesome@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.9.tgz#c865b9286c707407effcec99958043711367cd02"
+  integrity sha512-49V3WNysLZU5fZ3sqSuys4nGRytsrxJktbv3vuaXkEoxv22C6T7TEG0TW6+nqVjMnkfCQd5xOnmJoZHMF78tOw==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -1424,6 +1450,13 @@
   integrity sha512-PZtnBuyfL07sqCJvGg3z+0+kt6fobc/xmle08jBiezLS8FrmGeiGkJnuxL/8Zgy9L83ypUhniV5atZn/L8n9MQ==
   dependencies:
     "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react-toggle@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-toggle/-/react-toggle-4.0.2.tgz#46ffa5af1a55de5f25d0aa78ef0b557b5c8bf276"
+  integrity sha512-sHqfoKFnL0YU2+OC4meNEC8Ptx9FE8/+nFeFvNcdBa6ANA8KpAzj3R9JN8GtrvlLgjKDoYgI7iILgXYcTPo2IA==
+  dependencies:
     "@types/react" "*"
 
 "@types/react-webcam@^3.0.0":
@@ -2788,7 +2821,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.6:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -3458,6 +3491,13 @@ damerau-levenshtein@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.6.tgz#143c1641cb3d85c60c32329e26899adea8701791"
   integrity sha512-JVrozIeElnj3QzfUIt8tB8YMluBJom4Vw9qTPpjGYQ9fYlB3D/rb6OordUxf3xeFB35LKWs0xqcO5U6ySvBtug==
+
+darkreader@^4.9.1:
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/darkreader/-/darkreader-4.9.1.tgz#724828b30a0df0a350b2acf93ee98c85da0dc4d0"
+  integrity sha512-EMCHE2Qymg59sxMJVRwMHW7OifuMIf+I0i0rgW2+hrD81X+x80QWWTNEmdrl3306u+Kt16jf0qTWj6B+fxWRUg==
+  dependencies:
+    malevic "0.18.0"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -6663,6 +6703,11 @@ makeerror@1.0.x:
   dependencies:
     tmpl "1.0.x"
 
+malevic@0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/malevic/-/malevic-0.18.0.tgz#ed78a644329c410b3d66cb03f62a1c0332a6096c"
+  integrity sha512-d9XfQKexRjGUHugCUAMFjTbPnx1V8sfKcD9sYrk1/W/4/QpsgLR4x5GgkUGfHdsgQ2UbEcJSj6NWWJ+rd/m4aQ==
+
 mamacro@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/mamacro/-/mamacro-0.0.3.tgz#ad2c9576197c9f1abf308d0787865bd975a3f3e4"
@@ -8947,6 +8992,13 @@ react-scripts@3.3.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-toggle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/react-toggle/-/react-toggle-4.1.1.tgz#2317f67bf918ea3508a96b09dd383efd9da572af"
+  integrity sha512-+wXlMcSpg8SmnIXauMaZiKpR+r2wp2gMUteroejp2UTSqGTVvZLN+m9EhMzFARBKEw7KpQOwzCyfzeHeAndQGw==
+  dependencies:
+    classnames "^2.2.5"
 
 react-webcam@*, react-webcam@^5.0.0:
   version "5.0.0"

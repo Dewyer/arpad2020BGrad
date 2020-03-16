@@ -1,9 +1,10 @@
 import FaceDescriptor from "./FaceDescriptor";
 
-export default interface StudentPage
+export default interface StudentPageModel
 {
 	id:string
 	name:string,
+	status:string
 	description:string,
 	ownPhotosBase64:string[ ],
 	tabloDescriptor:FaceDescriptor,
@@ -18,5 +19,6 @@ export interface StudentPagePayload
 	ownPhotos:File[ ],
 	teacherPhotos:File[ ],
 	name:string,
-	description:string
+	description:string,
+	status:string
 }
