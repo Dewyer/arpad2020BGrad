@@ -4,11 +4,14 @@ import {RouteChildrenProps, Redirect} from "react-router-dom";
 import people from "../../assets/people.json";
 import StudentPageModel from "../../models/StudentPage";
 import StudentUitl from '../../utils/StudentUtil';
+import MarkdownIt from 'markdown-it';
 
 export interface Params
 {
 	id:string
 }
+
+const mdParser = new MarkdownIt();
 
 const StudentPage: React.FC<RouteChildrenProps<Params>> = (props) =>
 {
@@ -40,8 +43,10 @@ const StudentPage: React.FC<RouteChildrenProps<Params>> = (props) =>
 		return(<p>Betöltés ...</p>);
 
 	return (
-		<div>
-			<h2>{personData.name}</h2>
+		<div className={styles.container}>
+			<h2 className={styles.name}>{personData.name}</h2>
+			<img className={styles.tabloImg} src={personData.tabloBase64} alt="Tablo kep"/>
+			<div className={styles.description} dangerouslySetInnerHTML={{__html:mdParser.render(personData.description)}}/>
 		</div>
 	);
 }

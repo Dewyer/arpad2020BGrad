@@ -1,2 +1,29 @@
 
 /*StudentPage View Styles*/
+
+.container
+{
+	width: 100vw;
+	padding: 0.2rem 2rem;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-areas:
+		"personName personName"
+		"tablo description";
+}
+
+.name
+{
+	grid-area: personName;
+}
+
+.tabloImg
+{
+	grid-area: tablo;
+	height: 20rem;
+}
+
+.description
+{
+	grid-area: description;
+}

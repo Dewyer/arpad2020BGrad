@@ -57,7 +57,6 @@ const ThemeSetter:React.FC<Props> = (props:Props) =>
 	const night = <FontAwesomeIcon icon={faMoon} color="white" style={{ fontSize: "0.65rem" }} />;
 	const day = <FontAwesomeIcon icon={faSun} color="white" style={{ fontSize: "0.65rem" }} />;
 
-
 	return (
 		<span className={styles.darkreader}>
 			<Toggle
