@@ -9,6 +9,7 @@ import
 	disable as disableDarkMode,
 	auto as followSystemColorScheme,
 } from 'darkreader';
+import useWindowDimensions from '../../hooks/useWindowDimension';
 
 export interface Props
 {
@@ -17,6 +18,9 @@ export interface Props
 
 const ThemeSetter:React.FC<Props> = (props:Props) =>
 {
+	const dimensions = useWindowDimensions();
+	const IsMobile = dimensions.width <= 750;
+
 	function toggleDarkMode(newIsDarkModeOn: boolean)
 	{
 		if (newIsDarkModeOn)
@@ -69,7 +73,7 @@ const ThemeSetter:React.FC<Props> = (props:Props) =>
 				}}
 				checked={isDarkTheme}
 			/>
-			<label htmlFor='dm-status'>Sötét mód</label>
+			{IsMobile ? null : <label htmlFor='dm-status'>Sötét mód</label>}
 		</span>
 	);
 }

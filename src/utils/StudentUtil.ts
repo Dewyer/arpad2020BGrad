@@ -3,9 +3,13 @@ import AiUtil from "./AiUtil";
 import FaceDescriptor from "../models/FaceDescriptor";
 import uuid from "uuid";
 import StudentPageModel from "../models/StudentPage";
+import { UserListItem, fromStudentPageModel } from "../models/UserListItem";
+import peopleJson from "../assets/people.json";
 
 export default abstract class StudentUitl
 {
+	public static CachedUserList : UserListItem[]|undefined = undefined;
+
 	public static async init()
 	{
 
@@ -23,6 +27,20 @@ export default abstract class StudentUitl
 		{
 			return null;
 		}
+	}
+
+	public static async fetchAndCacheUserList()
+	{
+		let newCache:UserListItem[] = [];
+		for (let ii = 0; ii < peopleJson.length;ii++)
+		{
+			let stData = await this.fetchStudentData(peopleJson[ii]);
+			if (stData)
+			{
+				newCache.push(fromStudentPageModel(stData))
+			}
+		}
+		this.CachedUserList = newCache;
 	}
 
 	public static async loadFileToBase64(ff:File) : Promise<string>
