@@ -1,0 +1,20 @@
+
+/*Construction View Styles*/
+
+.container
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 2rem;
+	background-color:lighten($color: #234D96, $amount: 20%);
+	height: 100vh;
+	width: 100vw;
+	box-sizing: border-box;
+
+	& img
+	{
+		height: 5rem;
+	}
+}

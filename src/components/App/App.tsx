@@ -9,6 +9,7 @@ import PageMakerPage from '../PageMakerPage';
 import AiUtil from "../../utils/AiUtil";
 import StudentPage from '../StudentPage';
 import PeopleListPage from '../PeopleListPage';
+import Construction from '../Construction';
 
 const App = () =>
 {
@@ -20,6 +21,8 @@ const App = () =>
 		loadFaceApi();
 	},[ ]);
 
+	return <Construction/>
+	/*
 	return (
 		<BrowserRouter>
 			<NavMenuWrapper>
@@ -32,7 +35,7 @@ const App = () =>
 				</Switch>
 			</NavMenuWrapper>
 		</BrowserRouter>
-	);
+	);*/
 }
 
 export default App;
