@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/arpad2020BGrad/precache-manifest.befc9c78a92a686d5c7bdc08e4e3943e.js"
+  "/arpad2020BGrad/precache-manifest.8fc2d92d30207a5b3b516fb1edfb58d3.js"
 );
 
 self.addEventListener('message', (event) => {
